@@ -1,0 +1,15 @@
+<?
+$model = new $cms_content_class($cms_csv_scope);
+foreach($model->columns as $col=>$info) if($info[1] && $info[1]['export']) $controller->cols[] = $col;
+
+if($csv_filters) foreach($csv_filters as $filter) if(is_array($filter)) $model->filter($filter['col'], $filter['val'], $filter['operator']);
+?>
+
+<?foreach($cols as $i=>$col):?><?if($i > 0):?>,<?endif?>"<?=$col?>"<?endforeach?>
+
+
+
+<?foreach($model->all() as $row):?>
+<?foreach($cols as $i=>$col):?><?if($i > 0):?>,<?endif?>"<?=str_replace('"', "'", $row->humanize($col))?>"<?endforeach?>
+
+<?endforeach?>
