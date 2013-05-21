@@ -1,0 +1,9 @@
+Provide CSV
+
+on ApplicationController set $cms_csv_scope & $csv_filters
+
+$csv_filters are applied to the model and should be in this form:
+
+$csv_filters = array(
+    array('col'=>"column name", 'val'=>"value", 'operator'=> "= / != etc");
+);

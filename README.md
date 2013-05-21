@@ -1,4 +1,0 @@
-wildfire.csv
-============
-
-csv
